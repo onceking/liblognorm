@@ -795,6 +795,10 @@ ln_normalize(ln_ctx ctx, const char *str, size_t strLen, struct json_object **js
 	int r;
 	int left;
 	struct ln_ptree *endNode = NULL;
+	while (isspace(*str)) {
+		++str;
+		--strLen;
+	}
 
 	if(*json_p == NULL) {
 		CHKN(*json_p = json_object_new_object());
